@@ -65,9 +65,6 @@ if(!class_exists('BC_CF7_Logout')){
         public function bc_cf7_loaded(){
             add_action('wpcf7_before_send_mail', [$this, 'wpcf7_before_send_mail'], 10, 3);
             add_filter('do_shortcode_tag', [$this, 'do_shortcode_tag'], 10, 4);
-            if(!has_filter('wpcf7_verify_nonce', 'is_user_logged_in')){
-                add_filter('wpcf7_verify_nonce', 'is_user_logged_in');
-            }
             bc_build_update_checker('https://github.com/beavercoffee/bc-cf7-logout', $this->file, 'bc-cf7-logout');
             do_action('bc_cf7_logout_loaded');
         }
